@@ -1,27 +1,27 @@
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #003366; /* Dark blue color */
-    padding: 1rem 2rem;
+.nav-link {
     color: #fff;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 1.5rem;
-}
-
-header a {
     text-decoration: none;
-}
-
-header a .github-icon {
-    font-size: 2rem;
-    color: #fff;
+    font-size: 1.2rem;
+    padding: 0.5rem;
     transition: color 0.3s ease;
 }
 
-header a .github-icon:hover {
-    color: #6e5494; /* GitHub hover color */
+.nav-link:hover {
+    color: #ff6347;
 }
+
+.nav-link.active {
+    font-weight: bold;
+    color: #ff6347; /* Highlight the active link */
+}
+.profile-photo {
+    top: 40px;
+    left: 50px;
+    width: 100px; /* Adjust size as needed */
+    height: 100px; /* Adjust size as needed */
+    border-radius: 20%; /* Optional: Makes the image round */
+  }  
+  .profile-text { 
+    font-size: 14px; /* Adjust font size as needed */ 
+    color: #540255; /* Adjust color as needed */ 
+    margin: 0; }

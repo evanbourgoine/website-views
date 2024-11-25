@@ -1,79 +1,70 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-
-// Page Components
-const Home = () => (
-    <div style={{ padding: '2rem', textAlign: 'center' }}>
-        <h2>Welcome to My Website</h2>
-        <p>This is the home page.</p>
-    </div>
-);
-
-const Projects = () => (
-    <div style={{ padding: '2rem', textAlign: 'center' }}>
-        <h2>My Projects</h2>
-        <p>Here is a list of my projects.</p>
-    </div>
-);
+import React from 'react';
+import './styles.css';
+import lighthouseImage from './assets/lighthouse.jpg';
+import profilePhoto from './assets/profile.png';
 
 const App = () => {
-    const [hovered, setHovered] = useState(null);
-
-    const linkStyle = (link) => ({
-        color: hovered === link ? '#ff6347' : '#fff',
-        textDecoration: 'none',
-        fontSize: '1.2rem',
-        padding: '0.5rem',
-    });
-
     return (
-        <Router>
-            <header style={styles.header}>
-                <h1 style={styles.title}>My Website</h1>
-                <nav style={styles.nav}>
-                    <Link
-                        to="/"
-                        style={linkStyle('home')}
-                        onMouseEnter={() => setHovered('home')}
-                        onMouseLeave={() => setHovered(null)}
-                    >
-                        Home
-                    </Link>
-                    <Link
-                        to="/projects"
-                        style={linkStyle('projects')}
-                        onMouseEnter={() => setHovered('projects')}
-                        onMouseLeave={() => setHovered(null)}
-                    >
-                        Projects
-                    </Link>
-                </nav>
+        <div style={styles.container}>
+
+            <header className="App-header">
+                 <img src={profilePhoto} className="profile-photo" alt="My Photo" />
+                 <p className="profile-text">Hello! I'm Evan Bourgoine - A Computer Science Student at Virginia Tech</p>
             </header>
-            <main>
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/projects" element={<Projects />} />
-                </Routes>
-            </main>
-        </Router>
+
+            {/* Card 1 */}
+            <div style={styles.card}>
+                <img 
+                    src={lighthouseImage}
+                    alt="Lighthouse" 
+                    style={styles.image} 
+                />
+                <div style={styles.text}>
+                    <h3>Card Title</h3>
+                    <p>Some description about this card.</p>
+                </div>
+            </div>
+
+            {/* Card 2 */}
+            <div style={styles.card}>
+                <img 
+                    src="https://via.placeholder.com/300x200" 
+                    alt="Placeholder" 
+                    style={styles.image} 
+                />
+                <div style={styles.text}>
+                    <h3>Another Card</h3>
+                    <p>Description for another card goes here.</p>
+                </div>
+            </div>
+
+            {/* Add more cards as needed */}
+        </div>
     );
 };
 
 const styles = {
-    header: {
+    container: {
         display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        backgroundColor: '#003366',
-        padding: '1rem 2rem',
-        color: '#fff',
-    },
-    title: {
-        margin: 0,
-    },
-    nav: {
-        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'center',
         gap: '1rem',
+        padding: '2rem',
+    },
+    card: {
+        backgroundColor: '#fff',
+        borderRadius: '8px',
+        boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+        width: '300px',
+        overflow: 'hidden',
+        textAlign: 'center',
+    },
+    image: {
+        width: '100%',
+        height: 'auto',
+    },
+    text: {
+        padding: '1rem',
     },
 };
 
