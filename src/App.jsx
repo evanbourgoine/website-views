@@ -83,6 +83,14 @@ const styles = {
         padding: '2rem',
         textAlign: 'center',
     },
+    button: {
+        padding: '10px 20px',
+        fontSize: '16px',
+        backgroundColor: '#003366',
+        color: '#fff',
+        borderRadius: '5px',
+        cursor: 'pointer',
+    },
 };
 
 export default App;
