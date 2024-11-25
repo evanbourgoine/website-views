@@ -31,10 +31,15 @@ const About = () => {
 };
 
 const Contact = () => {
+    const handleButtonClick = () => {
+        alert('Thanks for clicking!');
+    }
     return (
         <section style={styles.section}>
             <h2>Contact Me</h2>
-            <p>Email: your.email@example.com</p>
+            <button style={styles.button} onClick={handleButtonClick}>
+                Click This
+            </button>
         </section>
     );
 };
