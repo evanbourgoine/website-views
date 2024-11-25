@@ -1,59 +1,41 @@
 import React from 'react';
-import { FaGithub } from 'react-icons/fa';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
-// Functional components for different sections
-const Header = () => {
-    return (
-        <header style={styles.header}>
-            <h1 style={styles.title}>Evan Bourgoine</h1>
-            <a
-                href="https://github.com/evanbourgoine" // Replace with your GitHub URL
-                target="_blank"
-                rel="noopener noreferrer"
-                style={styles.githubLink}
-            >
-                <FaGithub style={styles.githubIcon} />
-            </a>
-        </header>
-    );
-};
+// Page Components
+const Home = () => (
+    <div style={styles.page}>
+        <h2>Welcome to My Website</h2>
+        <p>This is the home page.</p>
+    </div>
+);
 
-const About = () => {
-    return (
-        <section style={styles.section}>
-            <h2>About Me</h2>
-            <p>
-                I’m a web developer with a passion for building beautiful and functional
-                websites.
-            </p>
-        </section>
-    );
-};
+const Projects = () => (
+    <div style={styles.page}>
+        <h2>My Projects</h2>
+        <p>Here is a list of my projects.</p>
+    </div>
+);
 
-const Contact = () => {
-    const handleButtonClick = () => {
-        alert('Thanks for clicking!');
-    }
-    return (
-        <section style={styles.section}>
-            <h2>Contact Me</h2>
-            <button style={styles.button} onClick={handleButtonClick}>
-                Click This
-            </button>
-        </section>
-    );
-};
-
-// Main App component
 const App = () => {
     return (
-        <div>
-            <Header />
+        <Router>
+            {/* Header with Navigation */}
+            <header style={styles.header}>
+                <h1 style={styles.title}>My Website</h1>
+                <nav style={styles.nav}>
+                    <Link to="/" style={styles.navLink}>Home</Link>
+                    <Link to="/projects" style={styles.navLink}>Projects</Link>
+                </nav>
+            </header>
+
+            {/* Routes */}
             <main>
-                <About />
-                <Contact />
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/projects" element={<Projects />} />
+                </Routes>
             </main>
-        </div>
+        </Router>
     );
 };
 
@@ -69,27 +51,19 @@ const styles = {
     },
     title: {
         margin: 0,
-        fontSize: '1.5rem',
     },
-    githubLink: {
-        textDecoration: 'none',
+    nav: {
+        display: 'flex',
+        gap: '1rem',
     },
-    githubIcon: {
-        fontSize: '2rem',
+    navLink: {
         color: '#fff',
-        transition: 'color 0.3s ease',
+        textDecoration: 'none',
+        fontSize: '1.2rem',
     },
-    section: {
+    page: {
         padding: '2rem',
         textAlign: 'center',
-    },
-    button: {
-        padding: '10px 20px',
-        fontSize: '16px',
-        backgroundColor: '#003366',
-        color: '#fff',
-        borderRadius: '5px',
-        cursor: 'pointer',
     },
 };
 
