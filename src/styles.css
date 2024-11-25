@@ -1,3 +1,27 @@
-body {
-    font-family: 'Roboto', sans-serif;
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #003366; /* Dark blue color */
+    padding: 1rem 2rem;
+    color: #fff;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+header a {
+    text-decoration: none;
+}
+
+header a .github-icon {
+    font-size: 2rem;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+header a .github-icon:hover {
+    color: #6e5494; /* GitHub hover color */
 }
