@@ -9,7 +9,7 @@ const App = () => {
 
             <header className="App-header">
                  <img src={profilePhoto} className="profile-photo" alt="My Photo" />
-                 <p className="profile-text">Hello! I'm Evan Bourgoine - A Computer Science Student at Virginia Tech</p>
+                 <p className="profile-text">Hello! I'm Evan Bourgoine</p>
             </header>
 
             {/* Card 1 */}
